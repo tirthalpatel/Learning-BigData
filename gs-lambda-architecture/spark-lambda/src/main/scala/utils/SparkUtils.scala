@@ -53,4 +53,14 @@ object SparkUtils {
     ssc
   }
 
+  /*
+    What's Checkpoint in Spark?
+
+    The need with Spark Streaming application is that it should be operational 24/7. Thus, the system should also be fault tolerant.
+    If any data is lost, the recovery should be speedy. Spark streaming accomplishes this using checkpointing. So, Checkpointing is a
+    process to truncate RDD lineage graph. It saves the application state timely to reliable storage (HDFS). As the driver restarts
+    the recovery takes place. There are two types of data that we checkpoint in Spark: Metadata Checkpointing and Data Checkpointing.
+
+    To set the Spark checkpoint directory call: SparkContext.setCheckpointDir(directory: String)
+  */
 }
