@@ -31,6 +31,14 @@ object Settings {
     lazy val sourceFileForVagrant = sparkBatchJob.getString("vagrant_vm_sourceFile_path")
   }
 
+  // A parent singleton wrapper for "streamingjob" properties
+  object SparkStreamingJob {
+    private val sparkStreamingJob = config.getConfig("streamingjob")
+
+    lazy val sourceFileForIde = sparkStreamingJob.getString("local_ide_sourceFile_path")
+    lazy val sourceFileForVagrant = sparkStreamingJob.getString("vagrant_vm_sourceFile_path")
+  }
+
   // A parent singleton wrapper for "sparkutils" properties
   object Spark {
     private val sparkUtils = config.getConfig("sparkutils")
@@ -38,5 +46,13 @@ object Settings {
     lazy val winutilsDirectoryForIde = sparkUtils.getString("local_ide_winutils_directory")
     lazy val checkpointDirectoryForIde = sparkUtils.getString("local_ide_checkpoint_directory")
     lazy val checkpointDirectoryForHdfs = sparkUtils.getString("vagrant_hdfs_checkpoint_directory")
+  }
+
+  // A parent singleton wrapper for "lambda" properties
+  object Lambda {
+    private val lambda = config.getConfig("lambda")
+    lazy val kafkaTopic = lambda.getString("kafka_topic")
+    lazy val kafkaServerConfig = lambda.getString("kafka_server_config")
+    lazy val hdfsPath = lambda.getString("hdfs_path")
   }
 }
