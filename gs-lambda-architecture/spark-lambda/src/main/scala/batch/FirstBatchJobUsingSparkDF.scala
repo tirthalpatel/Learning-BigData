@@ -8,7 +8,7 @@ import utils.SparkUtils._
 /**
   * First Batch Job of Aggregating with Spark DataFrame API
   */
-object BatchJobUsingSparkDF {
+object FirstBatchJobUsingSparkDF {
 
   // isIDE = true refers to the code to be executed when running the program using Intellij IDE (see SparkUtils.scala)
 
@@ -18,7 +18,7 @@ object BatchJobUsingSparkDF {
     val sbjc = Settings.SparkBatchJob
 
     // --------------- setup spark sql context -----------------
-    val sc = getSparkContext("Lambda BatchJob with Spark DataFrame API")
+    val sc = getSparkContext("Lambda with Spark")
     val sqlContext = getSQLContext(sc)
 
     import org.apache.spark.sql.functions._
@@ -89,6 +89,8 @@ object BatchJobUsingSparkDF {
     if (isIDE) Thread sleep 1000*30 // Hold current thread for 30 seconds
 
     // ----------------- create user defined function (UDF) -------------------------
+
+    // (iv) under exposed products count per product per hour
     if (isIDE) {
       println("************************************ Under Exposed Products UDF:")
       sqlContext.udf.register("UnderExposed", (pageViewCount: Long, purchaseCount: Long) => if (purchaseCount == 0) 0 else pageViewCount / purchaseCount)

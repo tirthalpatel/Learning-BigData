@@ -6,11 +6,11 @@ import org.apache.commons.io.FileUtils
 import scala.util.Random
 
 /**
-  * Executable program to produce "data.tsv" and ".../input/data_*" files containing clickstream dataset (as per configuration in "application.conf")
+  * Executable program to produce clickstream dataset (i.e. "data.tsv" and ".../input/data_*" files as per configuration in "application.conf")
   */
 // An object in Scala = A class that has exactly one instance (i.e. Scala's ability for singleton pattern).
 // An App in Scala = A trait that can be used to quickly turn objects into executable programs. Here, object Main inherits the main method of App.
-object LogProducer extends App {
+object FirstLogProducer extends App {
   // WebLog config
   val wlc = Settings.WebLogGen
 

@@ -7,14 +7,14 @@ import utils.SparkUtils.{getSparkContext, isIDE}
 /**
   * First Batch Job of Aggregating with Spark RDD API
   */
-object BatchJobUsingSparkRDD {
+object FirstBatchJobUsingSparkRDD {
   def main (args: Array[String]): Unit = {
 
     // ----------- access BatchJob config ----------------
     val sbjc = Settings.SparkBatchJob
 
     // ------------ setup spark context -------------------
-    val sc = getSparkContext("Lambda BatchJob with Spark RDD API")
+    val sc = getSparkContext("Lambda with Spark")
 
     // ------------ initialize input RDD -------------------
     val sourceFile = isIDE match {
