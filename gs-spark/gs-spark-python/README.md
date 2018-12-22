@@ -17,7 +17,7 @@ Sample code to play with Spark using Python
 4. Open jupyter notebook UI in the browser: `http://localhost:8888/tree`
 
 ### Understanding Spark 2 programming concepts
-* [Spark 2 Concepts](https://github.com/tirthalpatel/Learning-BigData/blob/master/gs-spark/gs-spark-python/notebooks/00/Spark2-Introduction.ipynb)
+* [Spark 2 Concepts](https://github.com/tirthalpatel/Learning-BigData/blob/master/gs-spark/gs-spark-python/notebooks/00/Spark2-Concepts.ipynb)
 
 ### Understanding Spark RDD for data exploration, preparation and analysis i.e. cleaning, transforming and summarizing data
 * [Spark RDD - Loading a data set and getting started with Spark's RDD](https://github.com/tirthalpatel/Learning-BigData/blob/master/gs-spark/gs-spark-python/notebooks/01/Spark-HelloWorld.ipynb)
