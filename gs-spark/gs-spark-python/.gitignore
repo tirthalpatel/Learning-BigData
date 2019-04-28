@@ -4,3 +4,4 @@
 /notebooks/**/.ipynb_checkpoints
 /notebooks/**/metastore_db/
 /notebooks/**/derby.log
+/notebooks/**/out
