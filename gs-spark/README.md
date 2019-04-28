@@ -2,12 +2,13 @@
 
 Sample code to play with Spark using Java, Scala and Python
 
+* [Getting Started with Spark using Python and Jupyter Notebook](https://github.com/tirthalpatel/Learning-BigData/tree/master/gs-spark/gs-spark-python)
 * [Getting Started with Spark using Java](https://github.com/tirthalpatel/Learning-BigData/tree/master/gs-spark/gs-spark-java)
 * [Getting Started with Spark using Scala](https://github.com/tirthalpatel/Learning-BigData/tree/master/gs-spark/gs-spark-scala)
-* [Getting Started with Spark using Python and Jupyter Notebook](https://github.com/tirthalpatel/Learning-BigData/tree/master/gs-spark/gs-spark-python)
 
 # Further References
 
+* [Apache Spark Key Terms, Explained](https://www.kdnuggets.com/2016/06/spark-key-terms-explained.html)
 * [Spark courses on Pluralsight](https://www.pluralsight.com/search?q=spark&categories=course&sort=displayDate)
 * [Spark Tutorials](https://techvidvan.com/tutorials/spark-tutorial/)
 * [Spark Recipes](https://sparkour.urizone.net/recipes)
