@@ -31,12 +31,12 @@ Install following software followed by workshop VM setup on local development ma
 ### Workshop VM Setup
 
 * Add "127.0.0.1    lambda-pluralsight" entry in OS's host file (In case of Windows OS: C:\Windows\System32\drivers\etc\hosts)
-* Ensure to keep enough space in default machine folder (`Oracle VM VirtualBox -> File -> Preferences - General - e.g. e:\x-temp\VMs\VirtualBox-VMs`), because it'll require to store 8GB of downloaded VM image
+* Ensure to keep enough space in default machine folder (`Oracle VM VirtualBox -> File -> Preferences - General - e.g. d:\x-temp\vagrantvm\virtualbox-default`), because it'll require to store 8GB of downloaded VM image
 * Open Cygwin and go to directory where want to store the Vagrant box and clone project from Github
     - Open cygwin terminal: `cygwin`
-    - Go to Default Machine Folder via Cygwin (e.g.`cd /cygdrive/e/x-temp/VMs/VirtualBox-VMs`) and clone the workshop VM Repository from the Github: `git clone https://github.com/aalkilani/spark-kafka-cassandra-applying-lambda-architecture`
+    - Go to choice of directory (e.g.`cd /cygdrive/d/x-temp/vagrantvm`) and clone the workshop VM Repository from the Github: `git clone https://github.com/aalkilani/spark-kafka-cassandra-applying-lambda-architecture`
 * Manage workshop VM via Vagrant
-    - Go to vagrant directory in the cloned repository (e.g. `cd /cygdrive/e/x-temp/VMs/VirtualBox-VMs/spark-kafka-cassandra-applying-lambda-architecture/vagrant`)    
+    - Go to vagrant directory in the cloned repository (e.g. `cd /cygdrive/d/x-temp/vagrantvm/spark-kafka-cassandra-applying-lambda-architecture/vagrant`) 
     - Download vagrant box VM (if doesn't exist locally) and start or restart it: `vagrant up`
     - SSH to VM: `vagrant ssh`
     - SSH to VM and go to shared directory inside the VM (which is mounted as shared directory between VM and the vagrant directory in the cloned repository on Host OS): `cd \vagrant`
@@ -85,9 +85,9 @@ In case of any issue with workshop VM (i) see [troubleshooting guide](https://gi
     
 * **FirstBatchJobUsingSparkDF.scala - How to save to HDFS and execute on YARN (Spark Scheduling with Cluster Deploy Mode)?**
     - Configure "batchjob.vagrant_vm_sourceFile_path" and "sparkutils.vagrant_hdfs_checkpoint_directory" in "application.conf"
-    - Package "spark-lambda" module using Maven (e.g. Intellij - View - Tool Windows - Mavan Projects) and copy shaded fat jar (e.g. spark-lambda/target/spark-lambda-1.0-SNAPSHOT-shaded.jar) to "vagrant" directory (e.g. .../spark-kafka-cassandra-applying-lambda-architecture/vagrant)
+    - Package "spark-lambda" module using Maven (e.g. Intellij - View - Tool Windows - Mavan Projects) and copy shaded fat jar (e.g. spark-lambda/target/spark-lambda-1.0-SNAPSHOT-shaded.jar) to "vagrant/data" directory (e.g. .../spark-kafka-cassandra-applying-lambda-architecture/vagrant/data)
     - Start Workshop VM via vagrant (if not yet), SSH to vagrant and go to spark directory: cd /pluralsight/spark/
-    - Run spark-submit command: `./bin/spark-submit --master yarn --deploy-mode cluster --class batch.FirstBatchJobUsingSparkDF /vagrant/spark-lambda-1.0-SNAPSHOT-shaded.jar`
+    - Run spark-submit command: `./bin/spark-submit --master yarn --deploy-mode cluster --class batch.FirstBatchJobUsingSparkDF /vagrant/data/spark-lambda-1.0-SNAPSHOT-shaded.jar`
     - See Hadoop cluster UI
     - Check batch job write result in "/lambda/batch1" directory using one of below options
         - Open Name Node UI and Search "/lambda" directory using "Utilities : Browse file system" option
@@ -136,13 +136,13 @@ Start Workshop VM via vagrant (if not yet) and perform following steps in given 
 
 * **LambdaStreamingJob.scala - Streaming Ingest to HDFS using Spark Streaming Kafka Integration with Direct Approach (Speed Layer) + Persisting Spark Streaming Realtime Views in Cassandra (Serving layer)** 
     - Configure "lambda.hdfs_path" in "application.conf", if require
-    - Package "spark-lambda" module using Maven (e.g. Intellij - View - Tool Windows - Mavan Projects) and copy shaded fat jar (e.g. spark-lambda/target/spark-lambda-1.0-SNAPSHOT-shaded.jar) to "vagrant" directory (e.g. .../spark-kafka-cassandra-applying-lambda-architecture/vagrant)
+    - Package "spark-lambda" module using Maven (e.g. Intellij - View - Tool Windows - Mavan Projects) and copy shaded fat jar (e.g. spark-lambda/target/spark-lambda-1.0-SNAPSHOT-shaded.jar) to "vagrant/data" directory (e.g. .../spark-kafka-cassandra-applying-lambda-architecture/vagrant/data)
     - SSH to vagrant and go to spark directory: cd /pluralsight/spark/
-    - Run spark-submit command: `./bin/spark-submit --master yarn --deploy-mode cluster --class streaming.LambdaStreamingJob /vagrant/spark-lambda-1.0-SNAPSHOT-shaded.jar`        
+    - Run spark-submit command: `./bin/spark-submit --master yarn --deploy-mode cluster --class streaming.LambdaStreamingJob /vagrant/data/spark-lambda-1.0-SNAPSHOT-shaded.jar`        
 
 * **LambdaBatchJob.scala - Batch Processing from HDFS (Batch Layer) + Persisting Spark Batch Views in Cassandra (Serving layer)**
     - SSH to vagrant and go to spark directory: cd /pluralsight/spark/
-    - Run spark-submit command: `./bin/spark-submit --master yarn --deploy-mode cluster --class batch.LambdaBatchJob /vagrant/spark-lambda-1.0-SNAPSHOT-shaded.jar`    
+    - Run spark-submit command: `./bin/spark-submit --master yarn --deploy-mode cluster --class batch.LambdaBatchJob /vagrant/data/spark-lambda-1.0-SNAPSHOT-shaded.jar`    
     
 * **Running CQL using Zeppeline to query Realtime views and Batch views from Cassandra (Serving layer)**
     - See Realtime views: Open "Cassandra" note and run last two paragraphs (i.e. select for lambda.stream_activity_by_product and lambda.stream_visitors_by_product)
