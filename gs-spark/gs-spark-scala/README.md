@@ -4,11 +4,11 @@ Sample code to play with Spark using Scala
 
 ## Required Software and Setup
 
-* Install Java 8 or later
+* Install Java 11 or later
 * Install Scala
 * Install Maven
-* Setup Spark (e.g. spark-2.3.1-bin-hadoop2.7) and configure necessary environment variables (e.g. 'SPARK_HOME' and include '%SPARK_HOME%/bin' in path) 
-* Setup Hadoop winutils in case of Window OS (e.g. hadoop-2.7.1-winutils) and configure related environment variable (e.g. 'HADOOP_HOME' and include '%HADOOP_HOME%/bin' in 'path')
+* Setup Spark (e.g. spark-3.3.1-bin-hadoop3.2) and configure necessary environment variables (e.g. 'SPARK_HOME' and include '%SPARK_HOME%/bin' in path) 
+* Setup Hadoop winutils in case of Window OS and configure related environment variable (e.g. 'HADOOP_HOME' and include '%HADOOP_HOME%/bin' in 'path')
 * Install Intellij 2018.3+ (preferably with Scala Plugin) and open the 'gs-spark-scala' maven project in IDE
 
 ## Word Count Example using Spark RDD
