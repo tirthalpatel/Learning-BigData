@@ -7,18 +7,18 @@ Sample code to play with Spark using Java
 * Install Java 11 or later
 * Install Maven
 * Setup Spark (e.g. spark-3.3.1-bin-hadoop3.2) and configure necessary environment variables (e.g. 'SPARK_HOME' and include '%SPARK_HOME%/bin' in path) 
-* Setup Hadoop winutils in case of Window OS and configure related environment variable (e.g. 'HADOOP_HOME' and include '%HADOOP_HOME%/bin' in 'path')
-* Install Intellij 2018.3+ and open the 'gs-spark-java' maven project in IDE
+* In case of Window OS, additionally setup Hadoop winutils and configure related environment variable (e.g. 'HADOOP_HOME' and include '%HADOOP_HOME%/bin' in 'path')
+* Install Intellij 2018.3 (or latest) and open the 'gs-spark-java' maven project in IDE
 
 ## Word Count Example using Spark RDD
 
-* See example java code of [Word count using Spark RDD](src/main/java/com/tirthal/learning/example/WorkCountWithSparkRdd.java) to understand Spark RDD (i.e. create RDD from input text file, do transformations and perform actions)
+* See example java code of [Word count using Spark RDD](src/main/java/com/tirthal/learning/example/WordCountWithSparkRdd.java) to understand Spark RDD (i.e. create RDD from input text file, do transformations and perform actions)
 
 * __Run using Intellij locally__: Select 'WordCountWithSparkRdd.java' - Press Alt+Shift+F10 - Edit Configuration - Configuration - Give location of any text file in 'Program arguments' - Run 
 
 * __Run Spark job locally (with as many worker threads as logical cores on your machine) using spark-submit__: Go to 'gs-spark-java' project directory, build project using maven (i.e. `mvn clean package`) and submit to local spark cluster: 
 
-    `spark-submit --master local[*] --class com.tirthal.learning.example.WordCountWithSparkRdd --packages org.apache.commons:commons-csv:1.2 target/gs-spark-java-1.0-SNAPSHOT.jar <path-of-text-file>`     
+    `spark-submit --master local[*] --class com.tirthal.learning.example.WordCountWithSparkRdd --packages org.apache.commons:commons-csv:1.2 target/gs-spark-java-1.0-SNAPSHOT.jar <path-of-text-file>`
 
 * __Run Spark job on Yarn using spark-submit__: Go to 'gs-spark-java' project directory, build project using maven (i.e. `mvn clean package`), upload "target/gs-spark-java-1.0-SNAPSHOT.jar" to `/tmp/spark-poc` HDFS directory and submit to a Yarn cluster: 
 

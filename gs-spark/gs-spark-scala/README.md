@@ -7,13 +7,13 @@ Sample code to play with Spark using Scala
 * Install Java 11 or later
 * Install Scala
 * Install Maven
-* Setup Spark (e.g. spark-3.3.1-bin-hadoop3.2) and configure necessary environment variables (e.g. 'SPARK_HOME' and include '%SPARK_HOME%/bin' in path) 
-* Setup Hadoop winutils in case of Window OS and configure related environment variable (e.g. 'HADOOP_HOME' and include '%HADOOP_HOME%/bin' in 'path')
-* Install Intellij 2018.3+ (preferably with Scala Plugin) and open the 'gs-spark-scala' maven project in IDE
+* Setup Spark (e.g. spark-3.3.1-bin-hadoop3.2) and configure necessary environment variables (e.g. 'SPARK_HOME' and include '%SPARK_HOME%/bin' in path)
+* In case of Window OS, additionally setup Hadoop winutils and configure related environment variable (e.g. 'HADOOP_HOME' and include '%HADOOP_HOME%/bin' in 'path')
+* Install Intellij 2018.3 (or latest) preferably with Scala Plugin and open the 'gs-spark-scala' maven project in IDE
 
 ## Word Count Example using Spark RDD
 
-* See example scala code of [Word count using Spark RDD](src/main/scala/com/tirthal/learning/example/WorkCountWithSparkRdd.scala) to understand Spark RDD (i.e. create RDD from input text file, do transformations and perform actions)
+* See example scala code of [Word count using Spark RDD](src/main/scala/com/tirthal/learning/example/WordCountWithSparkRdd.scala) to understand Spark RDD (i.e. create RDD from input text file, do transformations and perform actions)
 
 * __Run using Intellij locally__: Select 'WordCountWithSparkRdd.scala' - Press Alt+Shift+F10 - Edit Configuration - Configuration - Give location of any text file in 'Program arguments' - Run 
 
